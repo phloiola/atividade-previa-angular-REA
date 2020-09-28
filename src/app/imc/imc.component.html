@@ -1,0 +1,28 @@
+<p>Calculo IMC</p>
+
+<div>
+  <input
+    type="number"
+    id="inputAltura"
+    placeholder="Altura em cm"
+    [(ngModel)]="altura"
+    (input)="calcIMC()"
+  />
+</div>
+<div>
+  <input
+    type="number"
+    id="inputPeso"
+    placeholder="Peso em Kg"
+    [(ngModel)]="peso"
+    (input)="calcIMC()"
+  />
+</div>
+
+<div *ngIf="!!altura && !!peso; else noIMC">
+  <p>Seu IMC é {{ imc }}</p>
+</div>
+
+<ng-template #noIMC>
+  <p>Aguardando preenchimento</p>
+</ng-template>
